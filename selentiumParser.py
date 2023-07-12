@@ -40,3 +40,10 @@ def getCookie():
     data = driver.get_cookies()
     driver.quit()
     return data
+
+def getJsID():
+    cookie = getCookie()
+    for cook in cookie:
+        if cook.get('name') == '_tuid':
+            return cook.get('value')
+    return 'Error'
